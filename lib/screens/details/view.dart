@@ -62,7 +62,7 @@ class _DetailsViewState extends State<DetailsView> {
                                       return TextAlign.justify;
                                   }
                                 }
-                                return null;
+                                return TextAlign.right;
                               },
                             ),
                           )

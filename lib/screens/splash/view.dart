@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:aya_hospital/screens/home/view.dart';
+import 'package:aya_hospital/screens/home/view2.dart';
 import 'package:flutter/material.dart';
 
 class SplashView extends StatefulWidget {

@@ -1,3 +1,19 @@
 {
-    "title": "مستشفي أيه التخصصي"
+    "title": "مستشفي أيه التخصصي",
+    "welcome": "مرحبا بكم في",
+    "hospital_name": "مستشفي آية التخصصي الطبي",
+    "login": "تسجيل الدخول",
+    "quick_reservation": "الحجز السريع",
+    "call_us": "اتصل بنا",
+    "call_us_subtitle": "لديك أي أسئلة ؟ اتصل بينا أو راسلنا عبر البريد الإلكتروني",
+    "aya_doctors": "اطباء آية",
+    "aya_doctors_subtitle": "اعرف علي المزيد عن أطبائنا",
+    "medical_services": "الخدمات الطبية",
+    "medical_services_subtitle": "استكشف خدماتنا الطبية والجراحية",
+    "cure_sections": "الأقسام العلاجية",
+    "cure_sections_subtitle": "استكشف أقسامنا العلاجية",
+    "health_education": "التثقيف الصحي",
+    "health_education_subtitle": "اكتشف مدونة الصحة والعافية",
+    "location_on_map": "موقعنا علي الخريطة",
+    "location_on_map_subtitle": "استكشف موقعنا علي الخريطة"
 }
