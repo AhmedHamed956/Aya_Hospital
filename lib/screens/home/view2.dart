@@ -45,10 +45,13 @@ class _HomeViewState extends State<HomeView> {
         children: <Widget>[
           Stack(
             children: <Widget>[
-              Image.asset(
-                "assets/1.jpg",
-                height: 170,
-                fit: BoxFit.cover,
+              Container(
+                width: MediaQuery.of(context).size.width,
+                child: Image.asset(
+                  "assets/home_banner.png",
+                  height: 170,
+                  fit: BoxFit.cover,
+                ),
               ),
               Align(
                 alignment: AlignmentDirectional.center,
@@ -73,36 +76,85 @@ class _HomeViewState extends State<HomeView> {
           ),
           Column(
             children: <Widget>[
-              Text(
-                AppLocalizations.of(context).translate('welcome'),
-              ),
-              Text(
-                AppLocalizations.of(context).translate('hospital_name'),
-              ),
-              Container(
-                width: (MediaQuery.of(context).size.width * 2) / 3,
-                margin: EdgeInsets.only(top: 10),
-                child: FlatButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0),
+//              Text(
+//                AppLocalizations.of(context).translate('welcome'),
+//              ),
+//              Text(
+//                AppLocalizations.of(context).translate('hospital_name'),
+//              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  FlatButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    color: Theme.of(context).accentColor,
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DetailsView(
+                                    title: AppLocalizations.of(context)
+                                        .translate('quick_reservation'),
+                                    pageId: "6248",
+                                  )));
+                    },
+                    child: Text(
+                      AppLocalizations.of(context)
+                          .translate('quick_reservation'),
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
-                  color: Theme.of(context).accentColor,
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => DetailsView(
-                                  title: AppLocalizations.of(context)
-                                      .translate('quick_reservation'),
-                                  pageId: "6248",
-                                )));
-                  },
-                  child: Text(
-                    AppLocalizations.of(context).translate('quick_reservation'),
-                    style: TextStyle(color: Colors.white),
+                  SizedBox(
+                    width: 30,
                   ),
-                ),
+                  FlatButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    color: Theme.of(context).accentColor,
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DetailsView(
+                                    title: AppLocalizations.of(context)
+                                        .translate('medical_file'),
+                                    pageId: "7109",
+                                  )));
+                    },
+                    child: Text(
+                      AppLocalizations.of(context).translate('medical_file'),
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ],
               ),
+//              Container(
+//                width: (MediaQuery.of(context).size.width * 2) / 3,
+//                margin: EdgeInsets.only(top: 10),
+//                child: FlatButton(
+//                  shape: RoundedRectangleBorder(
+//                    borderRadius: BorderRadius.circular(30.0),
+//                  ),
+//                  color: Theme.of(context).accentColor,
+//                  onPressed: () {
+//                    Navigator.push(
+//                        context,
+//                        MaterialPageRoute(
+//                            builder: (context) => DetailsView(
+//                                  title: AppLocalizations.of(context)
+//                                      .translate('quick_reservation'),
+//                                  pageId: "6248",
+//                                )));
+//                  },
+//                  child: Text(
+//                    AppLocalizations.of(context).translate('quick_reservation'),
+//                    style: TextStyle(color: Colors.white),
+//                  ),
+//                ),
+//              ),
               Container(
                 margin: EdgeInsets.only(top: 20),
                 child: Row(
@@ -110,10 +162,10 @@ class _HomeViewState extends State<HomeView> {
                   children: <Widget>[
                     InkWell(
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ContactUsView()));
+//                        Navigator.push(
+//                            context,
+//                            MaterialPageRoute(
+//                                builder: (context) => ContactUsView()));
                       },
                       child: Container(
                           width: (MediaQuery.of(context).size.width * 2) / 5,
@@ -133,13 +185,13 @@ class _HomeViewState extends State<HomeView> {
                               ),
                               Text(
                                 AppLocalizations.of(context)
-                                    .translate('call_us'),
+                                    .translate('home_care'),
                                 style: TextStyle(
                                     color: Theme.of(context).accentColor),
                               ),
                               Text(
                                 AppLocalizations.of(context)
-                                    .translate('call_us_subtitle'),
+                                    .translate('home_care_subtitle'),
                                 textAlign: TextAlign.center,
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
@@ -303,48 +355,133 @@ class _HomeViewState extends State<HomeView> {
               ),
               Container(
                 margin: EdgeInsets.only(top: 20),
-                width: ((MediaQuery.of(context).size.width * 4) / 5) + 20,
-                padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Image.asset(
-                      "assets/home_location_icon.png",
-                      height: 60,
-                      width: 60,
-                      fit: BoxFit.cover,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
                     InkWell(
                       onTap: () {
                         _launchURL(
                             url: "https://goo.gl/maps/CRid4t7vXPwcRboSA");
                       },
-                      child: Column(
-                        children: <Widget>[
-                          Text(
-                            AppLocalizations.of(context)
-                                .translate('location_on_map'),
-                            style:
-                                TextStyle(color: Theme.of(context).accentColor),
-                          ),
-                          Text(
-                            AppLocalizations.of(context)
-                                .translate('location_on_map_subtitle'),
-                            textAlign: TextAlign.center,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(color: Colors.grey, fontSize: 10),
-                          ),
-                        ],
-                      ),
+                      child: Container(
+                          width: (MediaQuery.of(context).size.width * 2) / 7,
+                          height: 150,
+                          padding: EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10))),
+                          child: Column(
+                            children: <Widget>[
+                              Image.asset(
+                                "assets/home_location_icon.png",
+                                height: 60,
+                                width: 60,
+                                fit: BoxFit.cover,
+                              ),
+                              Text(
+                                AppLocalizations.of(context)
+                                    .translate('location_on_map'),
+                                style: TextStyle(
+                                    color: Theme.of(context).accentColor),
+                              ),
+                              Text(
+                                AppLocalizations.of(context)
+                                    .translate('location_on_map_subtitle'),
+                                textAlign: TextAlign.center,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style:
+                                    TextStyle(color: Colors.grey, fontSize: 10),
+                              ),
+                            ],
+                          )),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ContactUsView()));
+                      },
+                      child: Container(
+                          width: (MediaQuery.of(context).size.width * 2) / 7,
+                          height: 150,
+                          padding: EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10))),
+                          child: Column(
+                            children: <Widget>[
+                              Image.asset(
+                                "assets/home_medical_blog_icon.png",
+                                height: 60,
+                                width: 60,
+                                fit: BoxFit.cover,
+                              ),
+                              Text(
+                                AppLocalizations.of(context)
+                                    .translate('call_us'),
+                                style: TextStyle(
+                                    color: Theme.of(context).accentColor),
+                              ),
+                              Text(
+                                AppLocalizations.of(context)
+                                    .translate('call_us_subtitle'),
+                                textAlign: TextAlign.center,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style:
+                                    TextStyle(color: Colors.grey, fontSize: 10),
+                              ),
+                            ],
+                          )),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DetailsView(
+                                      title: AppLocalizations.of(context)
+                                          .translate('your_opinion_matters'),
+                                      pageId: "6426",
+                                    )));
+                      },
+                      child: Container(
+                          width: (MediaQuery.of(context).size.width * 2) / 7,
+                          height: 150,
+                          padding: EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10))),
+                          child: Column(
+                            children: <Widget>[
+                              Image.asset(
+                                "assets/home_medical_blog_icon.png",
+                                height: 60,
+                                width: 60,
+                                fit: BoxFit.cover,
+                              ),
+                              Text(
+                                AppLocalizations.of(context)
+                                    .translate('your_opinion_matters'),
+                                style: TextStyle(
+                                    color: Theme.of(context).accentColor),
+                              ),
+                              Text(
+                                AppLocalizations.of(context)
+                                    .translate('your_opinion_matters_subtitle'),
+                                textAlign: TextAlign.center,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style:
+                                    TextStyle(color: Colors.grey, fontSize: 10),
+                              ),
+                            ],
+                          )),
                     )
                   ],
                 ),

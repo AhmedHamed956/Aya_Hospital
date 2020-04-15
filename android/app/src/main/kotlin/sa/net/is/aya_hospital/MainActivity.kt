@@ -1,4 +1,4 @@
-package com.app.aya_hospital
+package sa.net.`is`.aya_hospital
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

@@ -42,7 +42,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.app.aya_hospital"
+        applicationId "sa.net.is.aya_hospital"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()

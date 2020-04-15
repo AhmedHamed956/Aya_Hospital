@@ -1,7 +1,7 @@
 name: aya_hospital
-description: A new Flutter project.
+description: Aya Hospital App
 
-version: 1.0.0+1
+version: 1.0.1+2
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -23,15 +23,6 @@ dependencies:
   url_launcher: ^5.4.2
   mailer2: ^1.2.5
 
-
-
-
-
-
-
-
-
-
 dev_dependencies: 
   flutter_launcher_icons: "^0.7.3"
   
@@ -40,17 +31,12 @@ flutter_icons:
   ios: true
   image_path: "assets/appIcon.png"
 
-
-
 flutter:
-
-
   uses-material-design: true
 
   assets:
     - assets/
     - assets/langs/
-
 
   fonts:
     - family: Cairo

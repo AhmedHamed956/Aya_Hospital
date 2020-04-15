@@ -66,95 +66,65 @@ Widget drawer({BuildContext context, bool loading, Response response}) {
                     ),
                   ],
                 ),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ContactUsView()));
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        'تواصل معنا',
-                        style: TextStyle(color: Colors.black, fontSize: 14),
-                      )
-                    ],
-                  ),
-                ),
+//                InkWell(
+//                  onTap: () {
+//                    Navigator.push(
+//                        context,
+//                        MaterialPageRoute(
+//                            builder: (context) => ContactUsView()));
+//                  },
+//                  child: Row(
+//                    mainAxisAlignment: MainAxisAlignment.center,
+//                    children: <Widget>[
+//                      Text(
+//                        'تواصل معنا',
+//                        style: TextStyle(color: Colors.black, fontSize: 14),
+//                      )
+//                    ],
+//                  ),
+//                ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height,
                   child: ListView.builder(
                       itemCount: response.data['items'].length,
                       itemBuilder: (context, index) {
-                        return ConfigurableExpansionTile(
-                          headerExpanded: Flexible(
-                              child: Center(
-                                  child: Text(
-                            response.data['items'][index]['title'],
-                            style: TextStyle(color: Colors.red, fontSize: 16),
-                          ))),
-                          header: Container(
-                              child: Center(
-                                  child: Text(
-                            response.data['items'][index]['title'],
-                            style: TextStyle(color: Colors.black, fontSize: 16),
-                          ))),
-                          children: [
-                            SizedBox(
-                              height: 150,
-                              child: ListView.builder(
-                                  itemCount: response.data['items'][index]
-                                              ['child_items'] ==
-                                          null
-                                      ? 0
-                                      : response
-                                          .data['items'][index]['child_items']
-                                          .length,
-                                  itemBuilder: (context, index2) {
-                                    return Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: 10, vertical: 10),
-                                      child: InkWell(
-                                        onTap: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      DetailsView(
-                                                        title: response.data[
-                                                                        'items']
-                                                                    [index]
-                                                                ['child_items']
-                                                            [index2]['title'],
-                                                        pageId: response.data[
-                                                                        'items']
-                                                                    [index]
-                                                                ['child_items'][
-                                                            index2]['object_id'],
-                                                      )));
-                                        },
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: <Widget>[
-                                            Text(
-                                              response.data['items'][index]
-                                                      ['child_items'][index2]
-                                                  ['title'],
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 14),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    );
-                                  }),
-                            )
-                          ],
+                        if (response.data['items'][index]['title'] == "الرئيسية" ||
+                            response.data['items'][index]['title'] == "من نحن" ||
+                            response.data['items'][index]['title'] == "معرض الصور")
+                          return Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 10),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          DetailsView(
+                                            title: response.data[
+                                            'items']
+                                            [index]['title'],
+                                            pageId: response.data[
+                                            'items']
+                                            [index]['object_id'],
+                                          )));
+                            },
+                            child: Row(
+                              mainAxisAlignment:
+                              MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text(
+                                  response.data['items'][index]['title'],
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 14),
+                                )
+                              ],
+                            ),
+                          ),
                         );
+                        else
+                          return Container();
                       }),
                 )
               ],
