@@ -1,3 +1,4 @@
+import 'package:aya_hospital/helpers/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:mailer2/mailer.dart';
@@ -136,7 +137,8 @@ class _ContactUsViewState extends State<ContactUsView> {
         centerTitle: true,
         backgroundColor: Theme.of(context).accentColor,
         title: Text(
-          'تواصل معنا',
+          AppLocalizations.of(context)
+              .translate('your_opinion_matters'),
           style: TextStyle(fontSize: 16),
         ),
       ),

@@ -2,6 +2,8 @@ import 'package:aya_hospital/helpers/app_localizations.dart';
 import 'package:aya_hospital/screens/contactus/view.dart';
 import 'package:aya_hospital/screens/details/view.dart';
 import 'package:aya_hospital/screens/drawer/view.dart';
+import 'package:aya_hospital/screens/webview/view.dart';
+import 'package:aya_hospital/screens/your_opinion_matters/view.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -34,7 +36,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFe1e0ce),
+      backgroundColor: Colors.white,
       drawer: _loading
           ? Container()
           : drawer(context: context, loading: _loading, response: response),
@@ -48,7 +50,7 @@ class _HomeViewState extends State<HomeView> {
               Container(
                 width: MediaQuery.of(context).size.width,
                 child: Image.asset(
-                  "assets/home_banner.png",
+                  "assets/ayahospital_home_bannar.jpeg",
                   height: 170,
                   fit: BoxFit.cover,
                 ),
@@ -60,7 +62,10 @@ class _HomeViewState extends State<HomeView> {
                   padding: EdgeInsets.all(5),
                   decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                      border: Border.all(
+                        color: Color(0xFFe1e0ce),
+                      )),
                   child: Image.asset(
                     "assets/appIcon.png",
                     height: 100,
@@ -94,11 +99,11 @@ class _HomeViewState extends State<HomeView> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => DetailsView(
-                                    title: AppLocalizations.of(context)
-                                        .translate('quick_reservation'),
-                                    pageId: "6248",
-                                  )));
+                              builder: (context) => WebView(
+                                  title: AppLocalizations.of(context)
+                                      .translate('quick_reservation'),
+                                  url:
+                                      "https://reports.ayahospital.com.sa:550")));
                     },
                     child: Text(
                       AppLocalizations.of(context)
@@ -118,11 +123,10 @@ class _HomeViewState extends State<HomeView> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => DetailsView(
-                                    title: AppLocalizations.of(context)
-                                        .translate('medical_file'),
-                                    pageId: "7109",
-                                  )));
+                              builder: (context) => WebView(
+                                  title: AppLocalizations.of(context)
+                                      .translate('medical_file'),
+                                  url: "https://reports.ayahospital.com.sa")));
                     },
                     child: Text(
                       AppLocalizations.of(context).translate('medical_file'),
@@ -162,10 +166,14 @@ class _HomeViewState extends State<HomeView> {
                   children: <Widget>[
                     InkWell(
                       onTap: () {
-//                        Navigator.push(
-//                            context,
-//                            MaterialPageRoute(
-//                                builder: (context) => ContactUsView()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => WebView(
+                                    title: AppLocalizations.of(context)
+                                        .translate('home_care'),
+                                    url:
+                                        "https://reports.ayahospital.com.sa/SER_OUTPAT/out_pat_main")));
                       },
                       child: Container(
                           width: (MediaQuery.of(context).size.width * 2) / 5,
@@ -174,7 +182,10 @@ class _HomeViewState extends State<HomeView> {
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
+                                  BorderRadius.all(Radius.circular(10)),
+                              border: Border.all(
+                                color: Color(0xFFe1e0ce),
+                              )),
                           child: Column(
                             children: <Widget>[
                               Image.asset(
@@ -209,11 +220,19 @@ class _HomeViewState extends State<HomeView> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => DetailsView(
-                                      title: AppLocalizations.of(context)
-                                          .translate('aya_doctors'),
-                                      pageId: "6135",
-                                    )));
+                                builder: (context) => WebView(
+                                    title: AppLocalizations.of(context)
+                                        .translate('aya_doctors'),
+                                    url:
+                                    "https://www.ayahospital.com.sa/%d8%a7%d8%b7%d8%a8%d8%a7%d8%a1-%d8%a2%d9%8a%d8%a9-%d9%85%d9%88%d8%a8%d9%8a%d9%84/")));
+//                        Navigator.push(
+//                            context,
+//                            MaterialPageRoute(
+//                                builder: (context) => DetailsView(
+//                                      title: AppLocalizations.of(context)
+//                                          .translate('aya_doctors'),
+//                                      pageId: "6135",
+//                                    )));
                       },
                       child: Container(
                           width: (MediaQuery.of(context).size.width * 2) / 5,
@@ -222,7 +241,10 @@ class _HomeViewState extends State<HomeView> {
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
+                                  BorderRadius.all(Radius.circular(10)),
+                              border: Border.all(
+                                color: Color(0xFFe1e0ce),
+                              )),
                           child: Column(
                             children: <Widget>[
                               Image.asset(
@@ -262,11 +284,19 @@ class _HomeViewState extends State<HomeView> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => DetailsView(
-                                      title: AppLocalizations.of(context)
-                                          .translate('cure_sections'),
-                                      pageId: "6231",
-                                    )));
+                                builder: (context) => WebView(
+                                    title: AppLocalizations.of(context)
+                                        .translate('cure_sections'),
+                                    url:
+                                    "https://www.ayahospital.com.sa/%d8%a7%d9%84%d8%a7%d9%82%d8%b3%d8%a7%d9%85-%d8%a7%d9%84%d8%b9%d9%84%d8%a7%d8%ac%d9%8a%d8%a9-%d9%85%d9%88%d8%a8%d9%8a%d9%84/")));
+//                        Navigator.push(
+//                            context,
+//                            MaterialPageRoute(
+//                                builder: (context) => DetailsView(
+//                                      title: AppLocalizations.of(context)
+//                                          .translate('cure_sections'),
+//                                      pageId: "6231",
+//                                    )));
                       },
                       child: Container(
                           width: (MediaQuery.of(context).size.width * 2) / 5,
@@ -275,7 +305,10 @@ class _HomeViewState extends State<HomeView> {
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
+                                  BorderRadius.all(Radius.circular(10)),
+                              border: Border.all(
+                                color: Color(0xFFe1e0ce),
+                              )),
                           child: Column(
                             children: <Widget>[
                               Image.asset(
@@ -310,11 +343,19 @@ class _HomeViewState extends State<HomeView> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => DetailsView(
-                                      title: AppLocalizations.of(context)
-                                          .translate('health_education'),
-                                      pageId: "6143",
-                                    )));
+                                builder: (context) => WebView(
+                                    title: AppLocalizations.of(context)
+                                        .translate('health_education'),
+                                    url:
+                                    "https://www.ayahospital.com.sa/%d8%aa%d8%ab%d9%82%d9%81-%d9%85%d8%b9%d8%a7%d9%86%d8%a7-%d9%85%d9%88%d8%a8%d9%8a%d9%84/")));
+//                        Navigator.push(
+//                            context,
+//                            MaterialPageRoute(
+//                                builder: (context) => DetailsView(
+//                                      title: AppLocalizations.of(context)
+//                                          .translate('health_education'),
+//                                      pageId: "6143",
+//                                    )));
                       },
                       child: Container(
                           width: (MediaQuery.of(context).size.width * 2) / 5,
@@ -323,7 +364,10 @@ class _HomeViewState extends State<HomeView> {
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
+                                  BorderRadius.all(Radius.circular(10)),
+                              border: Border.all(
+                                color: Color(0xFFe1e0ce),
+                              )),
                           child: Column(
                             children: <Widget>[
                               Image.asset(
@@ -370,7 +414,10 @@ class _HomeViewState extends State<HomeView> {
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
+                                  BorderRadius.all(Radius.circular(10)),
+                              border: Border.all(
+                                color: Color(0xFFe1e0ce),
+                              )),
                           child: Column(
                             children: <Widget>[
                               Image.asset(
@@ -411,52 +458,10 @@ class _HomeViewState extends State<HomeView> {
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
-                          child: Column(
-                            children: <Widget>[
-                              Image.asset(
-                                "assets/home_medical_blog_icon.png",
-                                height: 60,
-                                width: 60,
-                                fit: BoxFit.cover,
-                              ),
-                              Text(
-                                AppLocalizations.of(context)
-                                    .translate('call_us'),
-                                style: TextStyle(
-                                    color: Theme.of(context).accentColor),
-                              ),
-                              Text(
-                                AppLocalizations.of(context)
-                                    .translate('call_us_subtitle'),
-                                textAlign: TextAlign.center,
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                                style:
-                                    TextStyle(color: Colors.grey, fontSize: 10),
-                              ),
-                            ],
-                          )),
-                    ),
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => DetailsView(
-                                      title: AppLocalizations.of(context)
-                                          .translate('your_opinion_matters'),
-                                      pageId: "6426",
-                                    )));
-                      },
-                      child: Container(
-                          width: (MediaQuery.of(context).size.width * 2) / 7,
-                          height: 150,
-                          padding: EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
+                                  BorderRadius.all(Radius.circular(10)),
+                              border: Border.all(
+                                color: Color(0xFFe1e0ce),
+                              )),
                           child: Column(
                             children: <Widget>[
                               Image.asset(
@@ -482,7 +487,59 @@ class _HomeViewState extends State<HomeView> {
                               ),
                             ],
                           )),
-                    )
+                    ),
+                    InkWell(
+                      onTap: () {
+//                        Navigator.push(
+//                            context,
+//                            MaterialPageRoute(
+//                                builder: (context) => DetailsView(
+//                                      title: AppLocalizations.of(context)
+//                                          .translate('call_us'),
+//                                      pageId: "6426",
+//                                    )));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => YourOpinionMattersView()));
+                      },
+                      child: Container(
+                          width: (MediaQuery.of(context).size.width * 2) / 7,
+                          height: 150,
+                          padding: EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              border: Border.all(
+                                color: Color(0xFFe1e0ce),
+                              )),
+                          child: Column(
+                            children: <Widget>[
+                              Image.asset(
+                                "assets/home_contact_icon2.png",
+                                height: 60,
+                                width: 60,
+                                fit: BoxFit.cover,
+                              ),
+                              Text(
+                                AppLocalizations.of(context)
+                                    .translate('call_us'),
+                                style: TextStyle(
+                                    color: Theme.of(context).accentColor),
+                              ),
+                              Text(
+                                AppLocalizations.of(context)
+                                    .translate('call_us_subtitle'),
+                                textAlign: TextAlign.center,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style:
+                                    TextStyle(color: Colors.grey, fontSize: 10),
+                              ),
+                            ],
+                          )),
+                    ),
                   ],
                 ),
               ),

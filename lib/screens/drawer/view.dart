@@ -1,5 +1,8 @@
+import 'package:aya_hospital/helpers/app_localizations.dart';
 import 'package:aya_hospital/screens/contactus/view.dart';
 import 'package:aya_hospital/screens/details/view.dart';
+import 'package:aya_hospital/screens/webview/view.dart';
+import 'package:aya_hospital/screens/your_opinion_matters/view.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:configurable_expansion_tile/configurable_expansion_tile.dart';
@@ -66,67 +69,76 @@ Widget drawer({BuildContext context, bool loading, Response response}) {
                     ),
                   ],
                 ),
-//                InkWell(
-//                  onTap: () {
-//                    Navigator.push(
-//                        context,
-//                        MaterialPageRoute(
-//                            builder: (context) => ContactUsView()));
-//                  },
-//                  child: Row(
-//                    mainAxisAlignment: MainAxisAlignment.center,
-//                    children: <Widget>[
-//                      Text(
-//                        'تواصل معنا',
-//                        style: TextStyle(color: Colors.black, fontSize: 14),
-//                      )
-//                    ],
-//                  ),
-//                ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height,
+                  height: 100,
                   child: ListView.builder(
                       itemCount: response.data['items'].length,
                       itemBuilder: (context, index) {
-                        if (response.data['items'][index]['title'] == "الرئيسية" ||
-                            response.data['items'][index]['title'] == "من نحن" ||
-                            response.data['items'][index]['title'] == "معرض الصور")
+                        if (response.data['items'][index]['title'] ==
+                                "من نحن" ||
+                            response.data['items'][index]['title'] ==
+                                "معرض الصور")
                           return Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 10),
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          DetailsView(
-                                            title: response.data[
-                                            'items']
-                                            [index]['title'],
-                                            pageId: response.data[
-                                            'items']
-                                            [index]['object_id'],
-                                          )));
-                            },
-                            child: Row(
-                              mainAxisAlignment:
-                              MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text(
-                                  response.data['items'][index]['title'],
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 14),
-                                )
-                              ],
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 10),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.of(context).pop();
+                                if(response.data['items'][index]['title'] ==
+                                    "معرض الصور"){
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => WebView(
+                                            title: "معرض الصور",
+                                            url:
+                                            "https://www.ayahospital.com.sa/%d9%85%d8%b9%d8%b1%d8%b6-%d8%a7%d9%84%d8%b5%d9%88%d8%b1-%d9%85%d9%88%d8%a8%d9%8a%d9%84/")));
+                                }else {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              DetailsView(
+                                                title: response.data['items']
+                                                [index]['title'],
+                                                pageId: response.data['items']
+                                                [index]['object_id'],
+                                              )));
+                                }
+                              },
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    response.data['items'][index]['title'],
+                                    style: TextStyle(
+                                        color: Colors.black, fontSize: 14),
+                                  )
+                                ],
+                              ),
                             ),
-                          ),
-                        );
+                          );
                         else
                           return Container();
                       }),
-                )
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => YourOpinionMattersView()));
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        AppLocalizations.of(context).translate('call_us'),
+                        style: TextStyle(color: Colors.black, fontSize: 14),
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
