@@ -4,6 +4,7 @@ import 'package:aya_hospital/screens/details/view.dart';
 import 'package:aya_hospital/screens/drawer/view.dart';
 import 'package:aya_hospital/screens/webview/view.dart';
 import 'package:aya_hospital/screens/your_opinion_matters/view.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -47,14 +48,28 @@ class _HomeViewState extends State<HomeView> {
         children: <Widget>[
           Stack(
             children: <Widget>[
-              Container(
-                width: MediaQuery.of(context).size.width,
-                child: Image.asset(
-                  "assets/ayahospital_home_bannar.jpeg",
-                  height: 170,
-                  fit: BoxFit.cover,
-                ),
-              ),
+              CarouselSlider(
+                  items: [
+                    "ayahospital_home_bannar.jpeg",
+                    "IMG_0035.JPG",
+                    "IMG_0036.JPG",
+                    "IMG_0037.JPG"
+                  ].map((image) {
+                    return Image.asset("assets/$image");
+                  }).toList(),
+                  options: CarouselOptions(
+                    height: 170,
+                    viewportFraction: 1,
+                    initialPage: 0,
+                    enableInfiniteScroll: true,
+                    reverse: false,
+                    autoPlay: true,
+                    autoPlayInterval: Duration(seconds: 3),
+                    autoPlayAnimationDuration: Duration(milliseconds: 800),
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                    enlargeCenterPage: true,
+                    scrollDirection: Axis.horizontal,
+                  )),
               Align(
                 alignment: AlignmentDirectional.center,
                 child: Container(
@@ -103,7 +118,7 @@ class _HomeViewState extends State<HomeView> {
                                   title: AppLocalizations.of(context)
                                       .translate('quick_reservation'),
                                   url:
-                                      "https://reports.ayahospital.com.sa:550")));
+                                      "https://reports.ayahospital.com.sa/reserv")));
                     },
                     child: Text(
                       AppLocalizations.of(context)
@@ -189,7 +204,7 @@ class _HomeViewState extends State<HomeView> {
                           child: Column(
                             children: <Widget>[
                               Image.asset(
-                                "assets/home_contact_icon.png",
+                                "assets/home-care.png",
                                 height: 60,
                                 width: 60,
                                 fit: BoxFit.cover,
@@ -224,7 +239,7 @@ class _HomeViewState extends State<HomeView> {
                                     title: AppLocalizations.of(context)
                                         .translate('aya_doctors'),
                                     url:
-                                    "https://www.ayahospital.com.sa/%d8%a7%d8%b7%d8%a8%d8%a7%d8%a1-%d8%a2%d9%8a%d8%a9-%d9%85%d9%88%d8%a8%d9%8a%d9%84/")));
+                                        "https://www.ayahospital.com.sa/%d8%a7%d8%b7%d8%a8%d8%a7%d8%a1-%d8%a2%d9%8a%d8%a9-%d9%85%d9%88%d8%a8%d9%8a%d9%84/")));
 //                        Navigator.push(
 //                            context,
 //                            MaterialPageRoute(
@@ -288,7 +303,7 @@ class _HomeViewState extends State<HomeView> {
                                     title: AppLocalizations.of(context)
                                         .translate('cure_sections'),
                                     url:
-                                    "https://www.ayahospital.com.sa/%d8%a7%d9%84%d8%a7%d9%82%d8%b3%d8%a7%d9%85-%d8%a7%d9%84%d8%b9%d9%84%d8%a7%d8%ac%d9%8a%d8%a9-%d9%85%d9%88%d8%a8%d9%8a%d9%84/")));
+                                        "https://www.ayahospital.com.sa/%d8%a7%d9%84%d8%a7%d9%82%d8%b3%d8%a7%d9%85-%d8%a7%d9%84%d8%b9%d9%84%d8%a7%d8%ac%d9%8a%d8%a9-%d9%85%d9%88%d8%a8%d9%8a%d9%84/")));
 //                        Navigator.push(
 //                            context,
 //                            MaterialPageRoute(
@@ -347,7 +362,7 @@ class _HomeViewState extends State<HomeView> {
                                     title: AppLocalizations.of(context)
                                         .translate('health_education'),
                                     url:
-                                    "https://www.ayahospital.com.sa/%d8%aa%d8%ab%d9%82%d9%81-%d9%85%d8%b9%d8%a7%d9%86%d8%a7-%d9%85%d9%88%d8%a8%d9%8a%d9%84/")));
+                                        "https://www.ayahospital.com.sa/%d8%aa%d8%ab%d9%82%d9%81-%d9%85%d8%b9%d8%a7%d9%86%d8%a7-%d9%85%d9%88%d8%a8%d9%8a%d9%84/")));
 //                        Navigator.push(
 //                            context,
 //                            MaterialPageRoute(
@@ -371,7 +386,7 @@ class _HomeViewState extends State<HomeView> {
                           child: Column(
                             children: <Widget>[
                               Image.asset(
-                                "assets/home_medical_blog_icon.png",
+                                "assets/taskyef.png",
                                 height: 60,
                                 width: 60,
                                 fit: BoxFit.cover,
@@ -465,7 +480,7 @@ class _HomeViewState extends State<HomeView> {
                           child: Column(
                             children: <Widget>[
                               Image.asset(
-                                "assets/home_medical_blog_icon.png",
+                                "assets/write.png",
                                 height: 60,
                                 width: 60,
                                 fit: BoxFit.cover,
@@ -501,7 +516,8 @@ class _HomeViewState extends State<HomeView> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => YourOpinionMattersView()));
+                                builder: (context) =>
+                                    YourOpinionMattersView()));
                       },
                       child: Container(
                           width: (MediaQuery.of(context).size.width * 2) / 7,
