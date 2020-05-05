@@ -55,16 +55,18 @@ class _HomeViewState extends State<HomeView> {
                     "IMG_0036.JPG",
                     "IMG_0037.JPG"
                   ].map((image) {
-                    return Image.asset("assets/$image");
+                    return Container(
+                        width: MediaQuery.of(context).size.width,
+                        child: Image.asset("assets/$image", fit: BoxFit.fill,));
                   }).toList(),
                   options: CarouselOptions(
-                    height: 170,
+                    height: 190,
                     viewportFraction: 1,
                     initialPage: 0,
                     enableInfiniteScroll: true,
                     reverse: false,
                     autoPlay: true,
-                    autoPlayInterval: Duration(seconds: 3),
+                    autoPlayInterval: Duration(seconds: 5),
                     autoPlayAnimationDuration: Duration(milliseconds: 800),
                     autoPlayCurve: Curves.fastOutSlowIn,
                     enlargeCenterPage: true,
@@ -73,7 +75,7 @@ class _HomeViewState extends State<HomeView> {
               Align(
                 alignment: AlignmentDirectional.center,
                 child: Container(
-                  margin: EdgeInsets.only(top: 130),
+                  margin: EdgeInsets.only(top: 150),
                   padding: EdgeInsets.all(5),
                   decoration: BoxDecoration(
                       color: Colors.white,
