@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "97C146ED1CF9000F007C117D"
-               BuildableName = "Aya Hospital.app"
+               BuildableName = "Aya Hospital - &#x645;&#x633;&#x62a;&#x634;&#x641;&#x64a; &#x627;&#x653;&#x64a;&#x629;.app"
                BlueprintName = "Runner"
                ReferencedContainer = "container:Runner.xcodeproj">
             </BuildableReference>
@@ -31,7 +31,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "97C146ED1CF9000F007C117D"
-            BuildableName = "Aya Hospital.app"
+            BuildableName = "Aya Hospital - &#x645;&#x633;&#x62a;&#x634;&#x641;&#x64a; &#x627;&#x653;&#x64a;&#x629;.app"
             BlueprintName = "Runner"
             ReferencedContainer = "container:Runner.xcodeproj">
          </BuildableReference>
@@ -54,7 +54,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "97C146ED1CF9000F007C117D"
-            BuildableName = "Aya Hospital.app"
+            BuildableName = "Aya Hospital - &#x645;&#x633;&#x62a;&#x634;&#x641;&#x64a; &#x627;&#x653;&#x64a;&#x629;.app"
             BlueprintName = "Runner"
             ReferencedContainer = "container:Runner.xcodeproj">
          </BuildableReference>
@@ -71,7 +71,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "97C146ED1CF9000F007C117D"
-            BuildableName = "Aya Hospital.app"
+            BuildableName = "Aya Hospital - &#x645;&#x633;&#x62a;&#x634;&#x641;&#x64a; &#x627;&#x653;&#x64a;&#x629;.app"
             BlueprintName = "Runner"
             ReferencedContainer = "container:Runner.xcodeproj">
          </BuildableReference>
