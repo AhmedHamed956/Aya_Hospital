@@ -51,9 +51,10 @@ class _HomeViewState extends State<HomeView> {
               CarouselSlider(
                   items: [
                     "ayahospital_home_bannar.jpeg",
-                    "IMG_0035.JPG",
-                    "IMG_0036.JPG",
-                    "IMG_0037.JPG"
+                    "slider2.jpg",
+                    "slider3.jpg",
+                    "slider4.jpg",
+                    "slider5.jpg"
                   ].map((image) {
                     return Container(
                         width: MediaQuery.of(context).size.width,
