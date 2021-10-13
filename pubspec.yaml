@@ -1,0 +1,46 @@
+name: aya_hospital
+description: Aya Hospital App
+
+version: 1.0.8+7
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_cupertino_localizations: ^1.0.1
+  cupertino_icons: ^0.1.2
+  dio: ^3.0.8
+  flutter_html: ^0.11.1
+  flutter_swiper: ^1.1.6
+  configurable_expansion_tile: ^1.0.0
+  provider: ^4.0.4
+  url_launcher: ^5.4.2
+  mailer2: ^1.2.5
+  flutter_webview_plugin: 0.3.10+1
+  font_awesome_flutter: ^8.8.1
+  carousel_slider: ^2.1.0
+
+dev_dependencies: 
+  flutter_launcher_icons: "^0.7.3"
+  
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/appIcon.png"
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/langs/
+
+  fonts:
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/cairo_bold.ttf
+
