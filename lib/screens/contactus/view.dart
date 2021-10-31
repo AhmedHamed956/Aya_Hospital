@@ -1,7 +1,9 @@
 import 'package:aya_hospital/helpers/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:mailer/mailer.dart';
+import 'package:mailer/smtp_server.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:mailer2/mailer.dart';
+// import 'package:mailer2/mailer.dart';
 
 class ContactUsView extends StatefulWidget {
   @override
@@ -9,33 +11,76 @@ class ContactUsView extends StatefulWidget {
 }
 
 class _ContactUsViewState extends State<ContactUsView> {
-  String _email;
-  String _msg;
-  String _name;
-  String _phone;
+  final _email = TextEditingController();
+  final _msg = TextEditingController();
+  final _name = TextEditingController();
+  final _phone = TextEditingController();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  _sendMail() {
-    var options = SendGridSmtpOptions()
-      ..username = 'apikey'
-      ..hostName = 'smtp.sendgrid.net'
-      ..name = 'apikey'
-      ..password =
-          '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';
-    var emailTransport = SmtpTransport(options);
-    var envelope = Envelope()
-      ..from = 'info@ayahospital.com.sa'
+  _sendMail() async {
+    // var options = SendGridSmtpOptions()
+    //   ..username = 'apikey'
+    //   ..hostName = 'smtp.sendgrid.net'
+    //   ..name = 'apikey'
+    //   ..password =
+    //       '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';
+    // var emailTransport = SmtpTransport(options);
+    // var envelope = Envelope()
+    //   ..from = 'info@ayahospital.com.sa'
+    //   ..recipients.add('info@ayahospital.com.sa')
+    //   ..bccRecipients.add('arabee@is.net.sa')
+    //   ..subject = 'Aya Hospital App Contact Form'
+    //   ..html =
+    //       'Name: $_name<br>Email:$_email<br>Phone:$_phone<br>Msg:$_msg<br> Regards<br>Aya Hospital App';
+
+    final username = 'support@is.net.sa';
+    final password =
+        'xsmtpsib-7c95eba1e26b7bd148a2096e859db2a007444917863facadc3f41f58197003a6-3MQ91cRv2aAXrmBq';
+    final smtpServer = SmtpServer(
+      'smtp-relay.sendinblue.com',
+      port: 587,
+      username: username,
+      password: password,
+    );
+
+    final message = Message()
+      ..from = Address(username, 'Aya Hospital')
       ..recipients.add('info@ayahospital.com.sa')
-      ..bccRecipients.add('arabee@is.net.sa')
+      // ..bccRecipients.add(Address('arabee@is.net.sa'))
       ..subject = 'Aya Hospital App Contact Form'
       ..html =
-          'Name: $_name<br>Email:$_email<br>Phone:$_phone<br>Msg:$_msg<br> Regards<br>Aya Hospital App';
-
-    emailTransport.send(envelope).then((envelope) {
-      showInSnackBar(value: 'تم ارسال الرسالة بنجاح');
+          'Name: ${_name.text.trim()} <br>Email:${_email.text.trim()}<br>Phone:${_phone.text.trim()}<br>Msg:${_msg.text.trim()}<br> Regards<br>Aya Hospital App';
+    await send(message, smtpServer).then((value) {
+      print(value);
+      setState(() {
+        _name.clear();
+        _email.clear();
+        _phone.clear();
+        _msg.clear();
+      });
+      return showInSnackBar(value: 'تم ارسال الرسالة بنجاح');
     }).catchError((e) => print('Error occurred: $e'));
+    // var options = SendGridSmtpOptions()
+    //   ..port = 587
+    //   ..username = 'support@is.net.sa'
+    //   ..hostName = 'smtp-relay.sendinblue.com'
+    //   ..name = 'support@is.net.sa'
+    //   ..password =
+    //       'xsmtpsib-7c95eba1e26b7bd148a2096e859db2a007444917863facadc3f41f58197003a6-3MQ91cRv2aAXrmBq';
+    // var emailTransport = SmtpTransport(options);
+    // var envelope = Envelope()
+    //   ..from = 'support@is.net.sa'
+    //   ..recipients.add('support@is.net.sa')
+    //   ..bccRecipients.add('arabee@is.net.sa')
+    //   ..subject = 'Aya Hospital App Contact Form'
+    //   ..html =
+    //       'Name: $_name<br>Email:$_email<br>Phone:$_phone<br>Msg:$_msg<br> Regards<br>Aya Hospital App';
+
+    // emailTransport.send(envelope).then((envelope) {
+    //   showInSnackBar(value: 'تم ارسال الرسالة بنجاح');
+    // }).catchError((e) => print('Error occurred: $e'));
   }
 
   _launchURL({String url}) async {
@@ -63,10 +108,15 @@ class _ContactUsViewState extends State<ContactUsView> {
   }
 
   Widget _textField(
-      {String hint, Function validate, Function onsave, int lines}) {
+      {String hint,
+      Function validate,
+      controller,
+      Function onsave,
+      int lines}) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
       child: TextFormField(
+        controller: controller,
         maxLines: lines,
         validator: validate,
         onSaved: onsave,
@@ -137,8 +187,7 @@ class _ContactUsViewState extends State<ContactUsView> {
         centerTitle: true,
         backgroundColor: Theme.of(context).accentColor,
         title: Text(
-          AppLocalizations.of(context)
-              .translate('your_opinion_matters'),
+          AppLocalizations.of(context).translate('your_opinion_matters'),
           style: TextStyle(fontSize: 16),
         ),
       ),
@@ -156,10 +205,10 @@ class _ContactUsViewState extends State<ContactUsView> {
                       'https://www.facebook.com/AyaHosp/?modal=admin_todo_tour'),
               _item(
                   image: 'assets/twitter.png',
-                  url: 'https://twitter.com/ayahospital1'),
+                  url: 'https://twitter.com/ayahospital1?t=-_zZWANvbnJPwsUMaz--7Q&s=09'),
               _item(
                   image: 'assets/instagram.png',
-                  url: 'https://www.instagram.com/p/Bd2XSu2FP8z/'),
+                  url: 'https://instagram.com/ayahospital?utm_medium=copy_link'),
               _item(
                   image: 'assets/linkedin.png',
                   url: 'https://www.linkedin.com/in/aya-hospital-91a032b6'),
@@ -177,12 +226,8 @@ class _ContactUsViewState extends State<ContactUsView> {
             child: Column(
               children: <Widget>[
                 _textField(
+                    controller: _name,
                     hint: 'الاسم',
-                    onsave: (value) {
-                      setState(() {
-                        _name = value;
-                      });
-                    },
                     validate: (value) {
                       if (value.isEmpty) {
                         return 'الاسم مطلوب';
@@ -190,12 +235,8 @@ class _ContactUsViewState extends State<ContactUsView> {
                         return null;
                     }),
                 _textField(
+                    controller: _phone,
                     hint: 'رقم الجوال',
-                    onsave: (value) {
-                      setState(() {
-                        _phone = value;
-                      });
-                    },
                     validate: (value) {
                       if (value.isEmpty) {
                         return 'رقم الجوال مطلوب';
@@ -203,12 +244,8 @@ class _ContactUsViewState extends State<ContactUsView> {
                         return null;
                     }),
                 _textField(
+                    controller: _email,
                     hint: 'البريد الالكتروني',
-                    onsave: (value) {
-                      setState(() {
-                        _email = value;
-                      });
-                    },
                     validate: (value) {
                       if (value.isEmpty) {
                         return 'البريد الالكتروني مطلوب';
@@ -216,13 +253,9 @@ class _ContactUsViewState extends State<ContactUsView> {
                         return null;
                     }),
                 _textField(
+                    controller: _msg,
                     hint: 'نص الرساله',
                     lines: 4,
-                    onsave: (value) {
-                      setState(() {
-                        _msg = value;
-                      });
-                    },
                     validate: (value) {
                       if (value.isEmpty) {
                         return 'نص الرساله مطلوب';

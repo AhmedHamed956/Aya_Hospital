@@ -21,10 +21,12 @@ class _MyAppState extends State<MyApp> {
       child: Consumer<AppConfig>(
         builder: (context, appConfig, child) {
           return MaterialApp(
+          
             debugShowCheckedModeBanner: false,
             supportedLocales: [Locale('ar'), Locale('en')],
             locale: Locale(appConfig.currenLang),
             theme: ThemeData(
+                
                 brightness:
                     appConfig.isDark ? Brightness.dark : Brightness.light,
                 fontFamily: 'Cairo',
@@ -35,6 +37,7 @@ class _MyAppState extends State<MyApp> {
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
             ],
+            
             home: SplashView(),
           );
         },
