@@ -2,7 +2,6 @@ import 'package:aya_hospital/helpers/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:mailer2/mailer.dart';
 
 class YourOpinionMattersView extends StatefulWidget {
   @override
@@ -74,8 +73,8 @@ class _YourOpinionMattersViewState extends State<YourOpinionMattersView> {
                           children: <Widget>[
                             Text(
                               "موقعنا",
-                              style:
-                                  TextStyle(color: Theme.of(context).accentColor),
+                              style: TextStyle(
+                                  color: Theme.of(context).accentColor),
                             ),
                             Text(
                               "جده حي المحمدية شارع الأمير سلطان مقابل آية مول وساكو",
@@ -114,13 +113,13 @@ class _YourOpinionMattersViewState extends State<YourOpinionMattersView> {
                           children: <Widget>[
                             Text(
                               "الرقم الموحد: ",
-                              style:
-                                  TextStyle(color: Theme.of(context).accentColor),
+                              style: TextStyle(
+                                  color: Theme.of(context).accentColor),
                             ),
                             Text(
                               "920012342",
-                              style:
-                                  TextStyle(color: Theme.of(context).accentColor),
+                              style: TextStyle(
+                                  color: Theme.of(context).accentColor),
                             )
                           ],
                         ),
@@ -155,13 +154,13 @@ class _YourOpinionMattersViewState extends State<YourOpinionMattersView> {
                           children: <Widget>[
                             Text(
                               "رقم الفاكس: ",
-                              style:
-                                  TextStyle(color: Theme.of(context).accentColor),
+                              style: TextStyle(
+                                  color: Theme.of(context).accentColor),
                             ),
                             Text(
                               "966126997457",
-                              style:
-                                  TextStyle(color: Theme.of(context).accentColor),
+                              style: TextStyle(
+                                  color: Theme.of(context).accentColor),
                             )
                           ],
                         ),
@@ -195,7 +194,7 @@ class _YourOpinionMattersViewState extends State<YourOpinionMattersView> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              "info@example.com",
+                              "info@ayahospital.com.sa",
                               style: TextStyle(fontSize: 12),
                             )
                           ],
@@ -226,72 +225,29 @@ class _YourOpinionMattersViewState extends State<YourOpinionMattersView> {
                       Expanded(
                         child: RichText(
                           text: TextSpan(
-                        children: <TextSpan>[
-                          TextSpan(
-                            text:
-                                "للاستفسارات الموارد البشرية (وارسال السيرة الذاتية) استعمال البريد الالكترونى الاتى : ",
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.black,
-                                fontFamily: Theme.of(context)
-                                    .textTheme
-                                    .title
-                                    .fontFamily),
-                          ),
-                          TextSpan(
-                            text: "hr@ayahospital.com.sa",
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: Theme.of(context).accentColor,
-                                fontFamily: Theme.of(context)
-                                    .textTheme
-                                    .title
-                                    .fontFamily),
-                          )
-                        ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 2,
-                  ),
-                  Row(
-                    children: <Widget>[
-                      Text(
-                        "⚫",
-                        style: TextStyle(fontSize: 12),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Expanded(
-                        child: RichText(
-                          text: TextSpan(
-                        children: <TextSpan>[
-                          TextSpan(
-                            text:
-                                "للاتصال بالمدير العام , فمن فضلك استخدم البريد الالكترونى الاتى : ",
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.black,
-                                fontFamily: Theme.of(context)
-                                    .textTheme
-                                    .title
-                                    .fontFamily),
-                          ),
-                          TextSpan(
-                            text: "gm@ayahospital.com.sa",
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: Theme.of(context).accentColor,
-                                fontFamily: Theme.of(context)
-                                    .textTheme
-                                    .title
-                                    .fontFamily),
-                          )
-                        ],
+                            children: <TextSpan>[
+                              TextSpan(
+                                text:
+                                    "للاستفسارات الموارد البشرية (وارسال السيرة الذاتية) استعمال البريد الالكترونى الاتى : ",
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.black,
+                                    fontFamily: Theme.of(context)
+                                        .textTheme
+                                        .headline6
+                                        .fontFamily),
+                              ),
+                              TextSpan(
+                                text: "hr@ayahospital.com.sa",
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: Theme.of(context).accentColor,
+                                    fontFamily: Theme.of(context)
+                                        .textTheme
+                                        .headline6
+                                        .fontFamily),
+                              )
+                            ],
                           ),
                         ),
                       ),
@@ -312,72 +268,29 @@ class _YourOpinionMattersViewState extends State<YourOpinionMattersView> {
                       Expanded(
                         child: RichText(
                           text: TextSpan(
-                        children: <TextSpan>[
-                          TextSpan(
-                            text:
-                                "للشكاوى وتقديم المقترحات, فمن فضلك استخدم البريد الالكترونى الاتى : ",
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.black,
-                                fontFamily: Theme.of(context)
-                                    .textTheme
-                                    .title
-                                    .fontFamily),
-                          ),
-                          TextSpan(
-                            text: "complaint@ayahospital.com.sa",
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: Theme.of(context).accentColor,
-                                fontFamily: Theme.of(context)
-                                    .textTheme
-                                    .title
-                                    .fontFamily),
-                          )
-                        ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 2,
-                  ),
-                  Row(
-                    children: <Widget>[
-                      Text(
-                        "⚫",
-                        style: TextStyle(fontSize: 12),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Expanded(
-                        child: RichText(
-                          text: TextSpan(
-                        children: <TextSpan>[
-                          TextSpan(
-                            text:
-                                "الرقم المباشر للحجوزات والاستفسارات : ",
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.black,
-                                fontFamily: Theme.of(context)
-                                    .textTheme
-                                    .title
-                                    .fontFamily),
-                          ),
-                          TextSpan(
-                            text: "920012342",
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.black,
-                                fontFamily: Theme.of(context)
-                                    .textTheme
-                                    .title
-                                    .fontFamily),
-                          )
-                        ],
+                            children: <TextSpan>[
+                              TextSpan(
+                                text:
+                                    "للاتصال بالمدير العام , فمن فضلك استخدم البريد الالكترونى الاتى : ",
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.black,
+                                    fontFamily: Theme.of(context)
+                                        .textTheme
+                                        .headline6
+                                        .fontFamily),
+                              ),
+                              TextSpan(
+                                text: "gm@ayahospital.com.sa",
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: Theme.of(context).accentColor,
+                                    fontFamily: Theme.of(context)
+                                        .textTheme
+                                        .headline6
+                                        .fontFamily),
+                              )
+                            ],
                           ),
                         ),
                       ),
@@ -398,29 +311,29 @@ class _YourOpinionMattersViewState extends State<YourOpinionMattersView> {
                       Expanded(
                         child: RichText(
                           text: TextSpan(
-                        children: <TextSpan>[
-                          TextSpan(
-                            text:
-                                "الرقم الخاص بالتحويلات ",
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.black,
-                                fontFamily: Theme.of(context)
-                                    .textTheme
-                                    .title
-                                    .fontFamily),
-                          ),
-                          TextSpan(
-                            text: "0126944499",
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.black,
-                                fontFamily: Theme.of(context)
-                                    .textTheme
-                                    .title
-                                    .fontFamily),
-                          )
-                        ],
+                            children: <TextSpan>[
+                              TextSpan(
+                                text:
+                                    "للشكاوى وتقديم المقترحات, فمن فضلك استخدم البريد الالكترونى الاتى : ",
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.black,
+                                    fontFamily: Theme.of(context)
+                                        .textTheme
+                                        .headline6
+                                        .fontFamily),
+                              ),
+                              TextSpan(
+                                text: "complaint@ayahospital.com.sa",
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: Theme.of(context).accentColor,
+                                    fontFamily: Theme.of(context)
+                                        .textTheme
+                                        .headline6
+                                        .fontFamily),
+                              )
+                            ],
                           ),
                         ),
                       ),
@@ -441,29 +354,112 @@ class _YourOpinionMattersViewState extends State<YourOpinionMattersView> {
                       Expanded(
                         child: RichText(
                           text: TextSpan(
-                        children: <TextSpan>[
-                          TextSpan(
-                            text:
-                                "خدمة العملاء ",
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.black,
-                                fontFamily: Theme.of(context)
-                                    .textTheme
-                                    .title
-                                    .fontFamily),
+                            children: <TextSpan>[
+                              TextSpan(
+                                text: "الرقم المباشر للحجوزات والاستفسارات : ",
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.black,
+                                    fontFamily: Theme.of(context)
+                                        .textTheme
+                                        .headline6
+                                        .fontFamily),
+                              ),
+                              TextSpan(
+                                text: "920012342",
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.black,
+                                    fontFamily: Theme.of(context)
+                                        .textTheme
+                                        .headline6
+                                        .fontFamily),
+                              )
+                            ],
                           ),
-                          TextSpan(
-                            text: "(1063-1064)",
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.black,
-                                fontFamily: Theme.of(context)
-                                    .textTheme
-                                    .title
-                                    .fontFamily),
-                          )
-                        ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 2,
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Text(
+                        "⚫",
+                        style: TextStyle(fontSize: 12),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Expanded(
+                        child: RichText(
+                          text: TextSpan(
+                            children: <TextSpan>[
+                              TextSpan(
+                                text: "الرقم الخاص بالتحويلات ",
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.black,
+                                    fontFamily: Theme.of(context)
+                                        .textTheme
+                                        .headline6
+                                        .fontFamily),
+                              ),
+                              TextSpan(
+                                text: "0126944499",
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.black,
+                                    fontFamily: Theme.of(context)
+                                        .textTheme
+                                        .headline6
+                                        .fontFamily),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 2,
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Text(
+                        "⚫",
+                        style: TextStyle(fontSize: 12),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Expanded(
+                        child: RichText(
+                          text: TextSpan(
+                            children: <TextSpan>[
+                              TextSpan(
+                                text: "خدمة العملاء ",
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.black,
+                                    fontFamily: Theme.of(context)
+                                        .textTheme
+                                        .headline6
+                                        .fontFamily),
+                              ),
+                              TextSpan(
+                                text: "(1063-1064)",
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.black,
+                                    fontFamily: Theme.of(context)
+                                        .textTheme
+                                        .headline6
+                                        .fontFamily),
+                              )
+                            ],
                           ),
                         ),
                       ),
@@ -481,53 +477,51 @@ class _YourOpinionMattersViewState extends State<YourOpinionMattersView> {
                     height: 10,
                   ),
                   RichText(
-                      text: TextSpan(
-                        children: <TextSpan>[
-                          TextSpan(
-                            text:
-                            "فى حالات الطوارىء يمكنك الاتصال بالرقم: ",
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.black,
-                                fontFamily: Theme.of(context)
-                                    .textTheme
-                                    .title
-                                    .fontFamily),
-                          ),
-                          TextSpan(
-                            text: "6944499 12 966 +",
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.black,
-                                fontFamily: Theme.of(context)
-                                    .textTheme
-                                    .title
-                                    .fontFamily),
-                          ),
-                          TextSpan(
-                            text:
-                            "رقم التوصيلة الداخلية: ",
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.black,
-                                fontFamily: Theme.of(context)
-                                    .textTheme
-                                    .title
-                                    .fontFamily),
-                          ),
-                          TextSpan(
-                            text: "1017- 1016.",
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.black,
-                                fontFamily: Theme.of(context)
-                                    .textTheme
-                                    .title
-                                    .fontFamily),
-                          )
-                        ],
-                      ),
-                    )
+                    text: TextSpan(
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: "فى حالات الطوارىء يمكنك الاتصال بالرقم: ",
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.black,
+                              fontFamily: Theme.of(context)
+                                  .textTheme
+                                  .headline6
+                                  .fontFamily),
+                        ),
+                        TextSpan(
+                          text: "6944499 12 966 +",
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.black,
+                              fontFamily: Theme.of(context)
+                                  .textTheme
+                                  .headline6
+                                  .fontFamily),
+                        ),
+                        TextSpan(
+                          text: "رقم التوصيلة الداخلية: ",
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.black,
+                              fontFamily: Theme.of(context)
+                                  .textTheme
+                                  .headline6
+                                  .fontFamily),
+                        ),
+                        TextSpan(
+                          text: "1017- 1016.",
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.black,
+                              fontFamily: Theme.of(context)
+                                  .textTheme
+                                  .headline6
+                                  .fontFamily),
+                        )
+                      ],
+                    ),
+                  )
                 ],
               ),
             )

@@ -51,9 +51,9 @@ class _HomeViewState extends State<HomeView> {
               CarouselSlider(
                   items: [
                     "ayahospital_home_bannar.jpeg",
-                    "slider2.jpg",
-                    "slider3.jpg",
-                    "slider4.jpg",
+                    // "slider2.jpg",
+                    // "slider3.jpg",
+                    // "slider1.jpg",
                     "slider5.jpg"
                   ].map((image) {
                     return Container(
@@ -144,7 +144,8 @@ class _HomeViewState extends State<HomeView> {
                               builder: (context) => WebView(
                                   title: AppLocalizations.of(context)
                                       .translate('medical_file'),
-                                  url: "https://reports.ayahospital.com.sa")));
+                                  url:
+                                      "https://www.ayahospital.com.sa/%d8%a7%d9%84%d9%85%d9%84%d9%81-%d8%a7%d9%84%d8%b7%d8%a8%d9%89-%d9%85%d9%88%d8%a8%d9%8a%d9%84/")));
                     },
                     child: Text(
                       AppLocalizations.of(context).translate('medical_file'),
@@ -191,7 +192,7 @@ class _HomeViewState extends State<HomeView> {
                                     title: AppLocalizations.of(context)
                                         .translate('home_care'),
                                     url:
-                                        "https://reports.ayahospital.com.sa/SER_OUTPAT/out_pat_main")));
+                                        "https://212.11.189.195/ser_outpat/out_pat_main")));
                       },
                       child: Container(
                           width: (MediaQuery.of(context).size.width * 2) / 5,

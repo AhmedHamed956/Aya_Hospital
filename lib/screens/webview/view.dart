@@ -35,6 +35,7 @@ class WebViewState extends State<WebView> {
       appCacheEnabled: true,
       url: widget.url,
       withZoom: true,
+      ignoreSSLErrors: true,
       withLocalStorage: true,
       hidden: true,
     );
