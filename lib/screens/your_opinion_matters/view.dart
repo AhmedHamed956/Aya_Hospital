@@ -1,7 +1,6 @@
 import 'package:aya_hospital/helpers/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class YourOpinionMattersView extends StatefulWidget {
   @override
@@ -11,13 +10,13 @@ class YourOpinionMattersView extends StatefulWidget {
 class _YourOpinionMattersViewState extends State<YourOpinionMattersView> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  _launchURL({String url}) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
+  // _launchURL({String url}) async {
+  //   if (await canLaunch(url)) {
+  //     await launch(url);
+  //   } else {
+  //     throw 'Could not launch $url';
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
