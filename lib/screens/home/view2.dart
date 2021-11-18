@@ -1,6 +1,5 @@
 import 'package:aya_hospital/helpers/app_localizations.dart';
 import 'package:aya_hospital/screens/contactus/view.dart';
-import 'package:aya_hospital/screens/details/view.dart';
 import 'package:aya_hospital/screens/drawer/view.dart';
 import 'package:aya_hospital/screens/webview/view.dart';
 import 'package:aya_hospital/screens/your_opinion_matters/view.dart';
@@ -58,7 +57,10 @@ class _HomeViewState extends State<HomeView> {
                   ].map((image) {
                     return Container(
                         width: MediaQuery.of(context).size.width,
-                        child: Image.asset("assets/$image", fit: BoxFit.fill,));
+                        child: Image.asset(
+                          "assets/$image",
+                          fit: BoxFit.fill,
+                        ));
                   }).toList(),
                   options: CarouselOptions(
                     height: 190,
@@ -108,11 +110,13 @@ class _HomeViewState extends State<HomeView> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  FlatButton(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    color: Theme.of(context).accentColor,
+                  TextButton(
+                    style: ButtonStyle(
+                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        )),
+                        backgroundColor: MaterialStateProperty.all(
+                            Theme.of(context).accentColor)),
                     onPressed: () {
                       Navigator.push(
                           context,
@@ -132,11 +136,13 @@ class _HomeViewState extends State<HomeView> {
                   SizedBox(
                     width: 30,
                   ),
-                  FlatButton(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    color: Theme.of(context).accentColor,
+                  TextButton(
+                    style: ButtonStyle(
+                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        )),
+                        backgroundColor: MaterialStateProperty.all(
+                            Theme.of(context).accentColor)),
                     onPressed: () {
                       Navigator.push(
                           context,

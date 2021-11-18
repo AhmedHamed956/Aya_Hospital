@@ -162,6 +162,7 @@ class _ContactUsViewState extends State<ContactUsView> {
   void showInSnackBar({
     String value,
   }) {
+    // ignore: deprecated_member_use
     _scaffoldKey.currentState.showSnackBar(
       new SnackBar(
         behavior: SnackBarBehavior.fixed,
