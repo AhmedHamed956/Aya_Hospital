@@ -84,17 +84,13 @@ class _ContactUsViewState extends State<ContactUsView> {
   }
 
   _launchURL({String url}) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
+    await launch(url);
   }
 
   Widget _item({String image, String url}) {
     return InkWell(
-      onTap: () {
-        _launchURL(url: url);
+      onTap: () async {
+        await _launchURL(url: url);
       },
       child: Container(
         width: 40,
@@ -206,10 +202,12 @@ class _ContactUsViewState extends State<ContactUsView> {
                       'https://www.facebook.com/AyaHosp/?modal=admin_todo_tour'),
               _item(
                   image: 'assets/twitter.png',
-                  url: 'https://twitter.com/ayahospital1?t=-_zZWANvbnJPwsUMaz--7Q&s=09'),
+                  url:
+                      'https://twitter.com/ayahospital1?t=-_zZWANvbnJPwsUMaz--7Q&s=09'),
               _item(
                   image: 'assets/instagram.png',
-                  url: 'https://instagram.com/ayahospital?utm_medium=copy_link'),
+                  url:
+                      'https://instagram.com/ayahospital?utm_medium=copy_link'),
               _item(
                   image: 'assets/linkedin.png',
                   url: 'https://www.linkedin.com/in/aya-hospital-91a032b6'),
