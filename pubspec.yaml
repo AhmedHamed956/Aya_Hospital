@@ -1,7 +1,7 @@
 name: aya_hospital
 description: Aya Hospital App
 
-version: 1.0.8+7
+version: 1.0.8+12
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -18,7 +18,7 @@ dependencies:
   flutter_swiper: ^1.1.6
   configurable_expansion_tile: ^1.0.0
   provider: ^4.0.4
-  url_launcher: ^5.4.2
+  url_launcher:
   # mailer2: ^1.2.5
   mailer:
   flutter_webview_plugin: 0.3.10+1
